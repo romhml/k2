@@ -53,6 +53,7 @@ const items = computed(() => [
           v-else
           variant="link"
           size="sm"
+          color="black"
           @click="signIn('github')"
         >
           Sign In
