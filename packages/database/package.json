@@ -1,5 +1,5 @@
 {
-  "name": "database",
+  "name": "@k2/database",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.ts",
@@ -18,10 +18,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@k2/tsconfig": "workspace:*",
     "@types/node": "^18.16.19",
     "prisma": "^4.16.1",
     "ts-node": "^10.9.1",
-    "tsconfig": "workspace:*",
     "typescript": "^4.9.5"
   },
   "dependencies": {

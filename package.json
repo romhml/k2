@@ -1,5 +1,5 @@
 {
-  "name": "k2",
+  "name": "@k2",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -17,16 +17,16 @@
     "check": "dotenv -- turbo run --log-prefix=none check",
     "dev": "dotenv -- turbo run dev",
     "build": "dotenv -- turbo run build",
-    "web:dev": "dotenv -- pnpm --filter web dev",
-    "db:generate": "dotenv -- pnpm --filter database generate",
-    "db:push": "dotenv -- pnpm --filter database push",
-    "db:migrate": "dotenv -- pnpm --filter database migrate",
-    "db:seed": "dotenv -- pnpm --filter database seed"
+    "web:dev": "dotenv -- pnpm --filter @k2/web dev",
+    "db:generate": "dotenv -- pnpm --filter @k2/database generate",
+    "db:push": "dotenv -- pnpm --filter @k2/database push",
+    "db:migrate": "dotenv -- pnpm --filter @k2/database migrate",
+    "db:seed": "dotenv -- pnpm --filter @k2/database seed"
   },
   "devDependencies": {
+    "@k2/eslint-config": "workspace:*",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
-    "eslint-config-custom": "workspace:*",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",

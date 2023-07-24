@@ -6,10 +6,17 @@ useServerSeoMeta({
 const { status } = useAuth();
 const userStore = useUserStore();
 
-if (status.value === 'authenticated') {
-  await useAsyncData('auth.user', () => userStore.get());
-}
+watch(
+  () => status.value,
+  async (value) => {
+    if (value === 'authenticated') {
+      await userStore.get();
+    }
+  },
+  { immediate: true }
+);
 </script>
+
 <template>
   <div>
     <NuxtLayout>

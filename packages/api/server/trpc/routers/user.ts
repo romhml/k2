@@ -1,5 +1,5 @@
 import { router, protectedProcedure } from '../trpc';
-import { prisma } from 'database';
+import { prisma } from '@k2/database';
 import { updateUserSchema } from '../../types/user';
 
 export const userRouter = router({

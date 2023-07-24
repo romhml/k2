@@ -1,4 +1,4 @@
-import type { RouterOutput, RouterInput } from '@/server/trpc/routers';
+import type { RouterOutput, RouterInput } from '@k2/api/server/trpc/routers';
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -7,13 +7,14 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     async get() {
-      const { $client } = useNuxtApp();
-      this.user = await $client.user.get.query();
+      const trpc = useTRPC();
+      console.log('trpc', trpc);
+      this.user = await trpc.user.get.query();
     },
 
     async update(input: RouterInput['user']['update']) {
-      const { $client } = useNuxtApp();
-      this.user = await $client.user.update.mutate(input);
+      const trpc = useTRPC();
+      this.user = await trpc.user.update.mutate(input);
     },
   },
 });

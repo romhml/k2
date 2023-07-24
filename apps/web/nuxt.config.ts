@@ -2,21 +2,13 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxthq/ui', '@sidebase/nuxt-auth', '@pinia/nuxt', '@vueuse/nuxt'],
+  extends: '../../packages/api',
+  modules: ['@nuxthq/ui', '@pinia/nuxt', '@vueuse/nuxt'],
 
   css: ['@/assets/css/main.css'],
 
   ui: {
     safelistColors: ['red'],
-  },
-
-  auth: {
-    globalAppMiddleware: true,
-
-    provider: {
-      type: 'authjs',
-      defaultProvider: 'github',
-    },
   },
 
   pinia: {
@@ -36,22 +28,7 @@ export default defineNuxtConfig({
 
   typescript: {
     tsConfig: {
-      extends: 'tsconfig/base.json',
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      baseUrl: process.env.BASE_URL,
-    },
-
-    auth: {
-      secret: process.env.AUTH_SECRET,
-
-      github: {
-        clientId: process.env.GITHUB_CLIENT_ID,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      },
+      extends: '@k2/tsconfig/base.json',
     },
   },
 });

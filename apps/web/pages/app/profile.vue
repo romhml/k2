@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Form } from '@/components/base/form/BaseForm';
-import { UpdateUser, updateUserSchema } from '@/server/types/user';
+import { UpdateUser, updateUserSchema } from '@k2/api/server/types/user';
 
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);

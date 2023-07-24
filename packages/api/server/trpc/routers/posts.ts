@@ -1,6 +1,6 @@
-import { prisma } from 'database';
+import { prisma } from '@k2/database';
 import { router, protectedProcedure } from '../trpc';
-import { createPostSchema } from '@/server/types/posts';
+import { createPostSchema } from '../../types/posts';
 import { z } from 'zod';
 
 export const postsRouter = router({

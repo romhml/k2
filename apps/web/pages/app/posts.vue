@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createPostSchema, CreatePost } from '@/server/types/posts';
+import { createPostSchema, CreatePost } from '@k2/api/server/types/posts';
 import { Form } from '@/components/base/form/BaseForm';
 
 const { user } = useUserStore();
