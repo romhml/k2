@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env", "**/.env.*local"],
+  "globalEnv": [
+    "NODE_ENV",
+    "BASE_URL",
+    "NUXT_*",
+    "GITHUB_CLIENT_ID",
+    "GITHUB_CLIENT_SECRET",
+    "AUTH_*",
+    "VERCEL_*",
+    "CLERK_*"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "//#format": {
+      "cache": true
+    },
+    "format": {
+      "dependsOn": ["//#format", "^format"]
+    },
+    "//#lint": {
+      "cache": true
+    },
+    "lint": {
+      "dependsOn": ["//#lint", "^lint"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "check": {
+      "dependsOn": ["format", "lint", "typecheck"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

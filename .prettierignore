@@ -1,0 +1,15 @@
+**/dist
+**/typings.ts
+
+# pnpm
+pnpm-lock.yaml
+
+build_*
+
+# Nuxt
+**/.nuxt
+**/.output
+
+# Turbo
+out
+.turbo

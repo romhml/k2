@@ -1,0 +1,22 @@
+{
+  "name": "eslint-config-custom",
+  "version": "0.0.0",
+  "module": true,
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-turbo": "latest",
+    "eslint-plugin-unicorn": "^46.0.1",
+    "unicorn": "^0.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "typescript": "^4.9.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

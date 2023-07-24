@@ -1,0 +1,8 @@
+Dockerfile
+**/dist
+**/node_modules
+**/npm-debug.log
+**/.output
+**/.nuxt
+**/.env
+**/.env.*

@@ -1,0 +1,44 @@
+{
+  "name": "k2",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "prisma": {
+    "schema": "./packages/database/prisma/schema.prisma"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{ts,vue,js,md,prisma,yaml,html}\"",
+    "lint": "dotenv -- pnpm eslint --fix .",
+    "typecheck": "dotenv -- turbo run --log-prefix=none typecheck",
+    "check": "dotenv -- turbo run --log-prefix=none check",
+    "dev": "dotenv -- turbo run dev",
+    "build": "dotenv -- turbo run build",
+    "web:dev": "dotenv -- pnpm --filter web dev",
+    "db:generate": "dotenv -- pnpm --filter database generate",
+    "db:push": "dotenv -- pnpm --filter database push",
+    "db:migrate": "dotenv -- pnpm --filter database migrate",
+    "db:seed": "dotenv -- pnpm --filter database seed"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "prettier-plugin-prisma": "^4.13.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "turbo": "^1.10.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "dotenv-cli": "^7.2.1"
+  },
+  "packageManager": "pnpm@7.29.1"
+}
