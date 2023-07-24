@@ -1,6 +1,5 @@
 <p align="center">
     <img src="/apps/web/public/icon.svg" height="96">
-    <h3 align="center">K2</h3>
 </p>
 
 <p align="center">
