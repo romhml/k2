@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker';
-import { User } from '@prisma/client';
-import { prisma } from '..';
+import { faker } from "@faker-js/faker";
+import { User } from "@prisma/client";
+import { prisma } from "..";
 
 export const userFactory = async (overrides?: Partial<User>): Promise<User> => {
   return await prisma.user.create({

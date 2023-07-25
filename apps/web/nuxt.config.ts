@@ -2,33 +2,54 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  extends: '../../packages/api',
-  modules: ['@nuxthq/ui', '@pinia/nuxt', '@vueuse/nuxt'],
+  modules: ["@nuxthq/ui", "@pinia/nuxt", "@vueuse/nuxt", "@sidebase/nuxt-auth"],
+  css: ["@/assets/css/main.css"],
 
-  css: ['@/assets/css/main.css'],
+  auth: {
+    globalAppMiddleware: true,
+
+    provider: {
+      type: "authjs",
+      defaultProvider: "github",
+    },
+  },
 
   ui: {
-    safelistColors: ['red'],
+    safelistColors: ["red"],
   },
 
   pinia: {
-    autoImports: ['defineStore', 'storeToRefs'],
+    autoImports: ["defineStore", "storeToRefs"],
   },
 
   imports: {
-    dirs: ['stores/**', 'composables/**'],
+    dirs: ["stores/**", "composables/**"],
   },
 
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
-      link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
+      link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
     },
   },
 
   typescript: {
     tsConfig: {
-      extends: '@k2/tsconfig/base.json',
+      extends: "@k2/tsconfig/base.json",
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.BASE_URL,
+    },
+    auth: {
+      secret: process.env.AUTH_SECRET,
+
+      github: {
+        clientId: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      },
     },
   },
 });

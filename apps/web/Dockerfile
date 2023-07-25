@@ -29,7 +29,6 @@ RUN pnpm turbo run build --filter=web... --concurrency 1
 
 FROM node:18.16.0-alpine AS runner
  
-# Don't run production as root
 RUN addgroup --system --gid 1001 app 
 RUN adduser --system --uid 1001 app 
 USER app 
@@ -37,6 +36,4 @@ USER app
 COPY --from=installer --chown=app:app /app/apps/web/.output/ /app
 WORKDIR /app
 
-ENV CONFIG_PATH=".env"
-
-CMD export $(cat $CONFIG_PATH | xargs) && node server/index.mjs
+CMD node server/index.mjs

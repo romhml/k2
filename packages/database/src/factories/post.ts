@@ -1,7 +1,7 @@
-import { faker } from '@faker-js/faker';
-import { Post } from '@prisma/client';
-import { prisma } from '..';
-import { userFactory } from './user';
+import { faker } from "@faker-js/faker";
+import { Post } from "@prisma/client";
+import { prisma } from "..";
+import { userFactory } from "./user";
 
 export const postFactory = async (overrides?: Partial<Post>): Promise<Post> => {
   const authorId = overrides?.authorId ?? (await userFactory()).id;

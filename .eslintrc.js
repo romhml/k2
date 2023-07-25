@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@k2/eslint-config'],
+  extends: ["@k2/eslint-config"],
 };

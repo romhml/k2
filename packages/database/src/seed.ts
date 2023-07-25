@@ -1,12 +1,12 @@
-import { prisma } from '.';
-import { postFactory } from './factories';
+import { prisma } from ".";
+import { postFactory } from "./factories";
 
 (async () => {
   try {
     await Promise.all(
       [...Array(1000)].map(async () => {
         return await postFactory();
-      })
+      }),
     );
   } catch (error) {
     console.error(error);

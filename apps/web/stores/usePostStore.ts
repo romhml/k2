@@ -1,8 +1,8 @@
-import type { RouterInput, RouterOutput } from '@k2/api/server/trpc/routers';
+import type { RouterInput, RouterOutput } from "@/server/trpc/routers";
 
-export const usePostStore = defineStore('post', {
+export const usePostStore = defineStore("post", {
   state: () => ({
-    posts: [] as RouterOutput['posts']['list'],
+    posts: [] as RouterOutput["posts"]["list"],
     offset: 0,
     limit: 10,
     hasMore: false,
@@ -10,8 +10,8 @@ export const usePostStore = defineStore('post', {
 
   actions: {
     async list() {
-      const trpc = useTRPC();
-      const posts = await trpc.posts.list.query({
+      const { $trpc } = useNuxtApp();
+      const posts = await $trpc.posts.list.query({
         offset: this.offset,
         limit: this.limit,
       });
@@ -25,9 +25,9 @@ export const usePostStore = defineStore('post', {
       return posts;
     },
 
-    async create(input: RouterInput['posts']['create']) {
-      const trpc = useTRPC();
-      const post = await trpc.posts.create.mutate(input);
+    async create(input: RouterInput["posts"]["create"]) {
+      const { $trpc } = useNuxtApp();
+      const post = await $trpc.posts.create.mutate(input);
       this.posts.unshift(post);
     },
   },

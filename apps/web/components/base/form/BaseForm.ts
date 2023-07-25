@@ -1,4 +1,4 @@
-import { ZodSchema, z, ZodIssue, ZodError } from 'zod';
+import { ZodError, ZodIssue, ZodSchema, z } from "zod";
 
 export interface Form<T> {
   validate(data: Partial<T>): T;
@@ -16,7 +16,7 @@ export default defineComponent({
     type Schema = z.infer<typeof props.schema>;
     const errors = ref<ZodIssue[]>([]);
 
-    provide('form-errors', errors);
+    provide("form-errors", errors);
 
     expose({
       validate: (data: Partial<Schema>): Schema => {
@@ -33,6 +33,6 @@ export default defineComponent({
       },
     });
 
-    return () => h('form', slots.default?.());
+    return () => h("form", slots.default?.());
   },
 });

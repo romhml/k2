@@ -1,33 +1,24 @@
 <script setup lang="ts">
 const { signOut, status, signIn } = useAuth();
-const isSignedIn = computed(() => status.value === 'authenticated');
+const isSignedIn = computed(() => status.value === "authenticated");
 const { user } = useUserStore();
 
 const items = computed(() => [
   [
     {
-      label: 'Profile',
-      avatar: {
-        src: user?.image ?? undefined,
-      },
+      label: "Posts",
+      icon: "i-heroicons-envelope",
       async click() {
-        await navigateTo('/app/profile');
-      },
-    },
-    {
-      label: 'Posts',
-      icon: 'i-heroicons-envelope',
-      async click() {
-        await navigateTo('/app/posts');
+        await navigateTo("/posts");
       },
     },
   ],
   [
     {
-      label: 'Sign out',
-      icon: 'i-heroicons-arrow-left-on-rectangle',
+      label: "Sign out",
+      icon: "i-heroicons-arrow-left-on-rectangle",
       async click() {
-        await signOut({ callbackUrl: '/' });
+        await signOut({ callbackUrl: "/" });
       },
     },
   ],

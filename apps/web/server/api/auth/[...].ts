@@ -1,9 +1,8 @@
-import { NuxtAuthHandler } from '#auth';
-import GithubProvider from 'next-auth/providers/github';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import { Adapter } from 'next-auth/adapters';
-
-import { PrismaClient } from '@k2/database';
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { Adapter } from "next-auth/adapters";
+import GithubProvider from "next-auth/providers/github";
+import { NuxtAuthHandler } from "#auth";
+import { PrismaClient } from "@k2/database";
 
 const prisma = new PrismaClient();
 const runtimeConfig = useRuntimeConfig();
@@ -13,7 +12,7 @@ export default NuxtAuthHandler({
   adapter: PrismaAdapter(prisma) as Adapter,
 
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
 
   providers: [

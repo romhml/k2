@@ -1,2 +1,2 @@
-export { postFactory } from './post';
-export { userFactory } from './user';
+export { postFactory } from "./post";
+export { userFactory } from "./user";
