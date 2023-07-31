@@ -24,6 +24,7 @@ const items = computed(() => [
   ],
 ]);
 </script>
+
 <template>
   <header class="h-16 border-b border-slate-300">
     <div

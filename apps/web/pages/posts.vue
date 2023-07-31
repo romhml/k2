@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { Form } from "@/components/base/form/BaseForm";
+import { Form } from "@nuxthq/ui-edge/dist/runtime/types/form";
 import { CreatePost, createPostSchema } from "@/server/schemas/posts";
 
 const { user } = useUserStore();
 const postStore = usePostStore();
-await useAsyncData("posts", () => postStore.list());
 
 const form = ref<Form<CreatePost>>();
 const state = ref({
@@ -12,21 +11,10 @@ const state = ref({
 });
 
 const onSubmit = async () => {
-  const data = form.value!.validate(state.value);
-  await postStore.create(data);
+  await form.value!.validate(state.value);
+  await postStore.create(state.value);
   state.value.content = "";
 };
-
-const container = ref();
-useInfiniteScroll(
-  container,
-  async () => {
-    await postStore.list();
-  },
-  {
-    interval: 500,
-  },
-);
 
 await useAsyncData("posts", () => postStore.list());
 </script>
@@ -35,16 +23,18 @@ await useAsyncData("posts", () => postStore.list());
     <div
       class="mx-auto w-full max-w-xl rounded-b-lg border-b border-l border-r border-slate-200"
     >
-      <BaseForm
+      <UForm
         ref="form"
         class="p-4"
         :schema="createPostSchema"
+        :state="state"
         @submit.prevent="onSubmit()"
       >
-        <div class="flex space-x-2">
-          <UAvatar class="flex-none" size="md" :src="user?.image ?? false" />
-
-          <BaseFormItem class="w-full" path="content">
+        <div class="space-x-2 flex">
+          <div class="flex-none">
+            <UAvatar size="md" :src="user?.image ?? false" />
+          </div>
+          <UFormGroup class="w-full inline" name="content">
             <UTextarea
               v-model="state.content"
               size="xl"
@@ -53,7 +43,7 @@ await useAsyncData("posts", () => postStore.list());
               :rows="1"
               autoresize
             />
-          </BaseFormItem>
+          </UFormGroup>
         </div>
 
         <div class="flex justify-end">
@@ -67,7 +57,7 @@ await useAsyncData("posts", () => postStore.list());
             Post
           </UButton>
         </div>
-      </BaseForm>
+      </UForm>
 
       <div v-for="post in postStore.posts" :key="post.id">
         <hr class="border-slate-200" />

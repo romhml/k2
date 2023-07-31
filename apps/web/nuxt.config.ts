@@ -2,7 +2,12 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxthq/ui", "@pinia/nuxt", "@vueuse/nuxt", "@sidebase/nuxt-auth"],
+  modules: [
+    "@nuxthq/ui-edge",
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+    "@sidebase/nuxt-auth",
+  ],
   css: ["@/assets/css/main.css"],
 
   auth: {
