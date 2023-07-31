@@ -11,7 +11,7 @@ const state = ref({
 });
 
 const onSubmit = async () => {
-  await form.value!.validate(state.value);
+  await form.value!.validate();
   await postStore.create(state.value);
   state.value.content = "";
 };
