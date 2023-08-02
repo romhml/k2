@@ -18,7 +18,8 @@
     "check": "dotenv -- turbo run --log-prefix=none check",
     "dev": "dotenv -- turbo run dev",
     "build": "dotenv -- turbo run build",
-    "web:dev": "dotenv -- pnpm --filter @k2/web dev"
+    "web:dev": "dotenv -- pnpm --filter @k2/web dev",
+    "postinstall": "prisma generate"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",

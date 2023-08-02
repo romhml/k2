@@ -12,7 +12,7 @@ export default defineNuxtPlugin(async () => {
           opts.direction === "down" && opts.result instanceof Error,
       }),
       httpBatchLink({
-        url: `${runtimeConfig.public.baseUrl}/api/trpc`,
+        url: `${runtimeConfig.public.baseURL}/api/trpc`,
       }),
     ],
     transformer: superjson,

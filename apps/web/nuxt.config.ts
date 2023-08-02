@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+const baseURL = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : process.env.BASE_URL;
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -11,16 +15,13 @@ export default defineNuxtConfig({
   css: ["@/assets/css/main.css"],
 
   auth: {
+    baseURL,
     globalAppMiddleware: true,
 
     provider: {
       type: "authjs",
       defaultProvider: "github",
     },
-  },
-
-  ui: {
-    safelistColors: ["red"],
   },
 
   pinia: {
@@ -46,7 +47,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl: process.env.BASE_URL,
+      baseURL,
     },
     auth: {
       secret: process.env.AUTH_SECRET,

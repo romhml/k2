@@ -25,7 +25,6 @@
     "@sidebase/nuxt-auth": "0.6.0-beta.3",
     "@trpc/client": "^10.35.0",
     "@trpc/server": "^10.35.0",
-    "@types/ws": "^8.5.5",
     "moment": "^2.29.4",
     "superjson": "^1.13.1",
     "trpc-nuxt": "^0.10.6",
