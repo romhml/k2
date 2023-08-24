@@ -9,7 +9,8 @@
     "GITHUB_CLIENT_SECRET",
     "AUTH_*",
     "VERCEL_*",
-    "CLERK_*"
+    "CLERK_*",
+    "DATABASE_URL"
   ],
   "pipeline": {
     "build": {

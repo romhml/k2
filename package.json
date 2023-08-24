@@ -6,20 +6,15 @@
     "apps/*",
     "packages/*"
   ],
-  "prisma": {
-    "schema": "./packages/database/prisma/schema.prisma",
-    "seed": "ts-node ./packages/database/src/seed.ts"
-  },
   "scripts": {
     "prepare": "husky install",
-    "format": "prettier --write \"**/*.{ts,vue,js,md,prisma,yaml,html}\"",
+    "format": "prettier --write \"**/*.{ts,vue,js,md,yaml,html}\"",
     "lint": "dotenv -- pnpm eslint --fix .",
     "typecheck": "dotenv -- turbo run --log-prefix=none typecheck",
     "check": "dotenv -- turbo run --log-prefix=none check",
     "dev": "dotenv -- turbo run dev",
     "build": "dotenv -- turbo run build",
-    "web:dev": "dotenv -- pnpm --filter @k2/web dev",
-    "postinstall": "prisma generate"
+    "web:dev": "dotenv -- pnpm --filter @k2/web dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
@@ -28,7 +23,6 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
-    "prettier-plugin-prisma": "^5.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "turbo": "^1.10.12"
   },

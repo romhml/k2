@@ -1,15 +1,14 @@
-import { PrismaAdapter } from "@auth/prisma-adapter";
+import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { Adapter } from "next-auth/adapters";
 import GithubProvider from "next-auth/providers/github";
 import { NuxtAuthHandler } from "#auth";
-import { PrismaClient } from "@k2/database";
+import { db } from "@k2/db";
 
-const prisma = new PrismaClient();
 const runtimeConfig = useRuntimeConfig();
 
 export default NuxtAuthHandler({
   secret: runtimeConfig.auth.secret,
-  adapter: PrismaAdapter(prisma) as Adapter,
+  adapter: DrizzleAdapter(db) as Adapter,
 
   session: {
     strategy: "jwt",

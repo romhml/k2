@@ -12,9 +12,10 @@ export const isAuthenticated = middleware(async ({ next, ctx }) => {
   if (!ctx?.user) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
+
   return next({
     ctx,
   });
 });
 
-export const protectedProcedure = t.procedure.use(isAuthenticated);
+export const protectedProcedure = publicProcedure.use(isAuthenticated);
