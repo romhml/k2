@@ -6,13 +6,11 @@ const baseURL = process.env.VERCEL_URL
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    "@nuxthq/ui-edge",
-    "@pinia/nuxt",
-    "@vueuse/nuxt",
-    "@sidebase/nuxt-auth",
-  ],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "@vueuse/nuxt", "@sidebase/nuxt-auth"],
   css: ["@/assets/css/main.css"],
+  build: {
+    transpile: ["trpc-nuxt"],
+  },
 
   auth: {
     baseURL,
@@ -46,12 +44,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    public: {
-      baseURL,
-    },
     auth: {
       secret: process.env.AUTH_SECRET,
-
       github: {
         clientId: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,

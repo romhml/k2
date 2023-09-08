@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Form } from "@nuxthq/ui-edge/dist/runtime/types/form";
+import { Form } from "@nuxt/ui/dist/runtime/types/form";
 import { CreatePost, createPostSchema } from "@/server/schemas/posts";
 
 const { user } = useUserStore();

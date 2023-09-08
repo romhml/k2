@@ -1,18 +1,17 @@
-import { createTRPCProxyClient, httpBatchLink, loggerLink } from "@trpc/client";
+import { loggerLink } from "@trpc/client";
 import superjson from "superjson";
+import { createTRPCNuxtClient, httpBatchLink } from "trpc-nuxt/client";
 import type { AppRouter } from "@/server/trpc/routers";
 
 export default defineNuxtPlugin(async () => {
-  const runtimeConfig = useRuntimeConfig();
-
-  const trpc = createTRPCProxyClient<AppRouter>({
+  const trpc = createTRPCNuxtClient<AppRouter>({
     links: [
       loggerLink({
         enabled: (opts) =>
           opts.direction === "down" && opts.result instanceof Error,
       }),
       httpBatchLink({
-        url: `${runtimeConfig.public.baseURL}/api/trpc`,
+        url: "/api/trpc",
       }),
     ],
     transformer: superjson,

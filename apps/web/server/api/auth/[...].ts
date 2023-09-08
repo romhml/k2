@@ -1,5 +1,5 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import { Adapter } from "next-auth/adapters";
+import type { Adapter } from "next-auth/adapters";
 import GithubProvider from "next-auth/providers/github";
 import { NuxtAuthHandler } from "#auth";
 import { db } from "@k2/db";

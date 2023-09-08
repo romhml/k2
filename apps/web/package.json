@@ -9,25 +9,29 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "peerDependencies": {
+    "next-auth": "4.21.1"
+  },
   "devDependencies": {
     "@k2/tsconfig": "workspace:*",
-    "@nuxt/devtools": "^0.7.1",
-    "@types/node": "^20.4.5",
-    "@vueuse/core": "^10.2.1",
-    "@vueuse/nuxt": "^10.2.1",
-    "nuxt": "^3.6.5"
+    "@nuxt/devtools": "^0.8.3",
+    "@types/node": "^20.5.9",
+    "@vueuse/core": "^10.4.1",
+    "@vueuse/nuxt": "^10.4.1",
+    "nuxt": "^3.7.1"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^0.3.2",
     "@k2/db": "workspace:*",
-    "@nuxthq/ui-edge": "2.6.0-28180213.dc1979c",
+    "@nuxt/ui": "^2.8.0",
     "@pinia/nuxt": "^0.4.11",
-    "@sidebase/nuxt-auth": "0.6.0-beta.3",
-    "@trpc/client": "^10.35.0",
-    "@trpc/server": "^10.35.0",
+    "@sidebase/nuxt-auth": "0.6.0-beta.5",
+    "@trpc/client": "^10.38.1",
+    "@trpc/server": "^10.38.1",
     "moment": "^2.29.4",
     "superjson": "^1.13.1",
-    "trpc-nuxt": "^0.10.6",
-    "zod": "^3.21.4"
+    "trpc-nuxt": "^0.10.12",
+    "valibot": "^0.13.1",
+    "zod": "^3.22.2"
   }
 }

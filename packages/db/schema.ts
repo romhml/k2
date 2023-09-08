@@ -1,33 +1,34 @@
 import { createId } from "@paralleldrive/cuid2";
 import { relations } from "drizzle-orm";
 import {
-  pgTable,
+  sqliteTable,
   uniqueIndex,
   text,
-  timestamp,
   integer,
   primaryKey,
-} from "drizzle-orm/pg-core";
+} from "drizzle-orm/sqlite-core";
 
-export const verificationTokens = pgTable(
+export const verificationTokens = sqliteTable(
   "verification_token",
   {
     identifier: text("identifier").notNull(),
     token: text("token").notNull(),
-    expires: timestamp("expires", { precision: 3, mode: "date" }).notNull(),
+    expires: integer("expires", { mode: "timestamp" }).notNull(),
   },
   (vt) => ({
     compoundKey: primaryKey(vt.identifier, vt.token),
   }),
 );
 
-export const users = pgTable(
+export const users = sqliteTable(
   "user",
   {
     id: text("id").primaryKey().notNull().$defaultFn(createId),
     name: text("name"),
     email: text("email"),
-    emailVerified: timestamp("emailVerified", { precision: 3, mode: "date" }),
+    emailVerified: integer("emailVerified", {
+      mode: "timestamp",
+    }),
     image: text("image"),
   },
   (table) => {
@@ -37,7 +38,7 @@ export const users = pgTable(
   },
 );
 
-export const accounts = pgTable(
+export const accounts = sqliteTable(
   "account",
   {
     userId: text("userId")
@@ -59,28 +60,26 @@ export const accounts = pgTable(
   }),
 );
 
-export const session = pgTable("session", {
+export const session = sqliteTable("session", {
   id: text("id").primaryKey().notNull().$defaultFn(createId),
   sessionToken: text("sessionToken").notNull(),
   userId: text("userId")
     .notNull()
     .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" }),
-  expires: timestamp("expires", { precision: 3, mode: "date" }).notNull(),
+  expires: integer("expires", { mode: "timestamp" }).notNull(),
 });
 
-export const posts = pgTable("post", {
+export const posts = sqliteTable("post", {
   id: text("id").primaryKey().notNull().$defaultFn(createId),
   content: text("content").notNull(),
   authorId: text("author_id")
     .notNull()
     .references(() => users.id, { onDelete: "restrict", onUpdate: "cascade" }),
-  createdAt: timestamp("createdAt", { precision: 3, mode: "date" })
+  createdAt: integer("createdAt", { mode: "timestamp" })
     .defaultNow()
     .notNull()
     .defaultNow(),
-  updatedAt: timestamp("updatedAt", { precision: 3, mode: "date" })
-    .notNull()
-    .defaultNow(),
+  updatedAt: integer("updatedAt", { mode: "timestamp" }).notNull().defaultNow(),
 });
 
 export const postsRelations = relations(posts, ({ one }) => ({

@@ -10,7 +10,8 @@
     "AUTH_*",
     "VERCEL_*",
     "CLERK_*",
-    "DATABASE_URL"
+    "DATABASE_URL",
+    "DATABASE_AUTH_TOKEN"
   ],
   "pipeline": {
     "build": {

@@ -6,15 +6,17 @@ useServerSeoMeta({
 const { status } = useAuth();
 const userStore = useUserStore();
 
-watch(
-  () => status.value,
-  async (value) => {
-    if (value === "authenticated") {
-      await userStore.get();
-    }
-  },
-  { immediate: true },
-);
+if (process.client) {
+  watch(
+    () => status.value,
+    async (value) => {
+      if (value === "authenticated" && process.client) {
+        await userStore.get();
+      }
+    },
+    { immediate: true },
+  );
+}
 </script>
 
 <template>

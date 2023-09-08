@@ -6,14 +6,14 @@
   "scripts": {},
   "devDependencies": {
     "@k2/tsconfig": "workspace:*",
-    "@opentelemetry/api": "^1.4.1",
     "drizzle-kit": "^0.19.13",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@libsql/client": "^0.3.2",
+    "@libsql/sqlite3": "^0.3.1",
     "@paralleldrive/cuid2": "^2.2.2",
-    "drizzle-orm": "types-bugs",
-    "postgres": "^3.3.5"
+    "drizzle-orm": "^0.28.6"
   }
 }
