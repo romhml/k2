@@ -14,8 +14,8 @@ definePageMeta({
         A <a href="https://nuxt.com">Nuxt</a> starter kit based on
         <a href="https://turbo.build">Turborepo</a>,
         <a href="https://trpc.io">TRPC</a> and
-        <a href="https://prisma.io">Prisma</a>, providing a powerful combination
-        for building Nuxt applications.
+        <a href="https://orm.drizzle.team">Drizzle</a>, providing a powerful
+        combination for building web applications.
       </p>
     </div>
   </div>

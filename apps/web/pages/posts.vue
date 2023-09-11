@@ -2,6 +2,7 @@
 import { Form } from "@nuxt/ui/dist/runtime/types/form";
 import { CreatePost, createPostSchema } from "@/server/schemas/posts";
 
+useFormGroup();
 const { user } = useUserStore();
 const postStore = usePostStore();
 

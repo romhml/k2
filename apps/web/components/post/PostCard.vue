@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   content: string;
-  createdAt: Date;
+  createdAt: number;
   author: { image: string | null; name: string | null };
 }>();
 </script>
@@ -15,7 +15,7 @@ defineProps<{
           {{ author?.name ?? "Anon" }}
         </p>
         <p class="text-xs text-neutral-400">
-          {{ $moment(createdAt).fromNow() }}
+          {{ $moment(createdAt / 1000).fromNow() }}
         </p>
       </div>
       <p class="mt-1.5">

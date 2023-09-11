@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", "@pinia/nuxt", "@vueuse/nuxt", "@sidebase/nuxt-auth"],
   css: ["@/assets/css/main.css"],
   build: {
-    transpile: ["trpc-nuxt"],
+    transpile: ["trpc-nuxt", "@nuxt/ui-edge", "valibot"],
   },
 
   auth: {
