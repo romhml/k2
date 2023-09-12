@@ -1,8 +1,8 @@
 import type { Config } from "drizzle-kit";
 
 export default {
-  schema: "./schema.ts",
-  out: "./drizzle",
+  schema: "./packages/db/schema.ts",
+  out: "./packages/db/drizzle",
   driver: "turso",
   dbCredentials: {
     url: process.env.DATABASE_URL || "",

@@ -12,7 +12,6 @@ const state = ref({
 });
 
 const onSubmit = async () => {
-  await form.value!.validate();
   await postStore.create(state.value);
   state.value.content = "";
 };
@@ -20,9 +19,9 @@ const onSubmit = async () => {
 await useAsyncData("posts", () => postStore.list());
 </script>
 <template>
-  <div ref="container" class="h-full overflow-y-scroll">
+  <div ref="container">
     <div
-      class="mx-auto w-full max-w-xl rounded-b-lg border-b border-l border-r border-slate-200"
+      class="mx-auto max-w-xl rounded-b-lg border-b border-l border-r border-slate-100"
     >
       <UForm
         ref="form"
@@ -41,7 +40,9 @@ await useAsyncData("posts", () => postStore.list());
               size="xl"
               placeholder="Write your post here..."
               variant="none"
-              :rows="1"
+              :rows="5"
+              :min="1"
+              :max="280"
               autoresize
             />
           </UFormGroup>
@@ -61,8 +62,13 @@ await useAsyncData("posts", () => postStore.list());
       </UForm>
 
       <div v-for="post in postStore.posts" :key="post.id">
-        <hr class="border-slate-200" />
-        <PostCard v-bind="post" class="p-4" />
+        <hr class="border-slate-100" />
+        <PostCard
+          :created-at="post.createdAt"
+          :content="post.content"
+          :author="post.author"
+          class="p-4"
+        />
       </div>
     </div>
   </div>

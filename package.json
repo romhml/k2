@@ -14,12 +14,14 @@
     "check": "dotenv -- turbo run --log-prefix=none check",
     "dev": "dotenv -- turbo run dev",
     "build": "dotenv -- turbo run build",
-    "web:dev": "dotenv -- pnpm --filter @k2/web dev"
+    "web:dev": "dotenv -- pnpm --filter @k2/web dev",
+    "drizzle": "dotenv -- pnpm drizzle-kit"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@k2/eslint-config": "workspace:*",
+    "drizzle-kit": "^0.19.13",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",

@@ -6,7 +6,14 @@ const baseURL = process.env.VERCEL_URL
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt", "@vueuse/nuxt", "@sidebase/nuxt-auth"],
+  modules: [
+    "@nuxt/ui",
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+    "@sidebase/nuxt-auth",
+    "@nuxt/image",
+  ],
+
   css: ["@/assets/css/main.css"],
   build: {
     transpile: ["trpc-nuxt", "@nuxt/ui-edge", "valibot"],
@@ -18,12 +25,16 @@ export default defineNuxtConfig({
 
     provider: {
       type: "authjs",
-      defaultProvider: "github",
+      addDefaultCallbackUrl: true,
     },
   },
 
   pinia: {
     autoImports: ["defineStore", "storeToRefs"],
+  },
+
+  ui: {
+    icons: ["heroicons", "ri"],
   },
 
   imports: {

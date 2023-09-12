@@ -1,17 +1,16 @@
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import type { Adapter } from "next-auth/adapters";
 import GithubProvider from "next-auth/providers/github";
 import { NuxtAuthHandler } from "#auth";
 import { db } from "@k2/db";
+import { SQLiteDrizzleAdapter } from "@/server/utils/auth/drizzleAdapter";
 
 const runtimeConfig = useRuntimeConfig();
 
 export default NuxtAuthHandler({
   secret: runtimeConfig.auth.secret,
-  adapter: DrizzleAdapter(db) as Adapter,
+  adapter: SQLiteDrizzleAdapter(db),
 
-  session: {
-    strategy: "jwt",
+  pages: {
+    signIn: "/signin",
   },
 
   providers: [
@@ -21,4 +20,10 @@ export default NuxtAuthHandler({
       clientSecret: runtimeConfig.auth.github.clientSecret,
     }),
   ],
+
+  callbacks: {
+    async redirect({ baseUrl }) {
+      return baseUrl;
+    },
+  },
 });

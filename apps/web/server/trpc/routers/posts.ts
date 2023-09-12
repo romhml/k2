@@ -19,6 +19,7 @@ export const postsRouter = router({
         with: { author: { columns: { id: true, image: true, name: true } } },
         where: (posts, { eq }) =>
           input?.authorId ? eq(posts.authorId, input?.authorId) : undefined,
+        orderBy: (posts, { desc }) => [desc(posts.createdAt)],
       });
     }),
 

@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "eslint": "^8.48.0",
+    "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-turbo": "^1.10.13",
     "eslint-plugin-unicorn": "^48.0.1",

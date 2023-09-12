@@ -26,7 +26,9 @@ const items = computed(() => [
 </script>
 
 <template>
-  <header class="h-16 border-b border-slate-300">
+  <header
+    class="h-16 border-b border-slate-100 bg-transparent backdrop-blur-3xl"
+  >
     <div
       class="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-8 py-2"
     >

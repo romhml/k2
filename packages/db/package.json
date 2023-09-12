@@ -6,7 +6,6 @@
   "scripts": {},
   "devDependencies": {
     "@k2/tsconfig": "workspace:*",
-    "drizzle-kit": "^0.19.13",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
