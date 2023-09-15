@@ -9,13 +9,11 @@
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,vue,js,md,yaml,html}\"",
-    "lint": "dotenv -- pnpm eslint --fix .",
-    "typecheck": "dotenv -- turbo run --log-prefix=none typecheck",
-    "check": "dotenv -- turbo run --log-prefix=none check",
-    "dev": "dotenv -- turbo run dev",
-    "build": "dotenv -- turbo run build",
-    "web:dev": "dotenv -- pnpm --filter @k2/web dev",
-    "drizzle": "dotenv -- pnpm drizzle-kit"
+    "lint": "eslint --fix .",
+    "check": "turbo run check",
+    "dev": "turbo run dev",
+    "web:dev": "turbo run dev --filter @k2/web --log-prefix none",
+    "drizzle": "drizzle-kit"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
@@ -26,7 +24,7 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
-    "turbo": "^1.10.13"
+    "turbo": "^1.10.14-canary.2"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -35,5 +33,5 @@
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "dotenv-cli": "^7.3.0"
   },
-  "packageManager": "pnpm@7.29.1"
+  "packageManager": "bun@1.0.1"
 }

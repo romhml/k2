@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-A <a href="https://nuxt.com">Nuxt</a> starter kit based on <a href="https://turbo.build">Turborepo</a>, <a href="https://trpc.io">TRPC</a> and <a href="https://orm.drizzle.team">Drizzle</a>,<br /> providing a powerful combination for building Nuxt applications.
+A <a href="https://nuxt.com">Nuxt</a> starter kit powered by <a href="https://bun.sh">Bun</a>, <a href="https://turbo.build">Turborepo</a>, <a href="https://trpc.io">TRPC</a> and <a href="https://orm.drizzle.team">Drizzle</a>.
 
 <br/>
 <br/>
@@ -11,6 +11,5 @@ A <a href="https://nuxt.com">Nuxt</a> starter kit based on <a href="https://turb
 <h2>Getting Started</h2>
 
 ```bash
-$ docker-compose up -d
-$ pnpm dev
+$ bun -b dev
 ```
