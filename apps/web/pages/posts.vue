@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Form } from "@nuxt/ui/dist/runtime/types/form";
-import { CreatePost, createPostSchema } from "@/server/schemas/posts";
+import { Form } from '@nuxt/ui/dist/runtime/types/form';
+import { CreatePost, createPostSchema } from '@/server/schemas/posts';
 
 useFormGroup();
 const { user } = useUserStore();
@@ -8,15 +8,15 @@ const postStore = usePostStore();
 
 const form = ref<Form<CreatePost>>();
 const state = ref({
-  content: "",
+  content: '',
 });
 
 const onSubmit = async () => {
   await postStore.create(state.value);
-  state.value.content = "";
+  state.value.content = '';
 };
 
-await useAsyncData("posts", () => postStore.list());
+await useAsyncData('posts', () => postStore.list());
 </script>
 <template>
   <div ref="container">
@@ -32,9 +32,15 @@ await useAsyncData("posts", () => postStore.list());
       >
         <div class="space-x-2 flex">
           <div class="flex-none">
-            <UAvatar size="md" :src="user?.image ?? false" />
+            <UAvatar
+              size="md"
+              :src="user?.image ?? false"
+            />
           </div>
-          <UFormGroup class="w-full inline" name="content">
+          <UFormGroup
+            class="w-full inline"
+            name="content"
+          >
             <UTextarea
               v-model="state.content"
               size="xl"
@@ -61,7 +67,10 @@ await useAsyncData("posts", () => postStore.list());
         </div>
       </UForm>
 
-      <div v-for="post in postStore.posts" :key="post.id">
+      <div
+        v-for="post in postStore.posts"
+        :key="post.id"
+      >
         <hr class="border-slate-100" />
         <PostCard
           :created-at="post.createdAt"

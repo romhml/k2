@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useServerSeoMeta({
-  title: "Nuxt starter",
+  title: 'Nuxt starter',
 });
 
 const { status } = useAuth();
@@ -10,11 +10,11 @@ if (process.client) {
   watch(
     () => status.value,
     async (value) => {
-      if (value === "authenticated" && process.client) {
+      if (value === 'authenticated' && process.client) {
         await userStore.get();
       }
     },
-    { immediate: true },
+    { immediate: true }
   );
 }
 </script>

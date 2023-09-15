@@ -1,8 +1,8 @@
-import type { RouterInput, RouterOutput } from "@/server/trpc/routers";
+import type { RouterInput, RouterOutput } from '@/server/trpc/routers';
 
-export const usePostStore = defineStore("post", {
+export const usePostStore = defineStore('post', {
   state: () => ({
-    posts: [] as RouterOutput["posts"]["list"],
+    posts: [] as RouterOutput['posts']['list'],
     offset: 0,
     limit: 10,
     hasMore: false,
@@ -25,7 +25,7 @@ export const usePostStore = defineStore("post", {
       return posts;
     },
 
-    async create(input: RouterInput["posts"]["create"]) {
+    async create(input: RouterInput['posts']['create']) {
       const { $trpc } = useNuxtApp();
       const post = await $trpc.posts.create.mutate(input);
       this.posts.unshift(post);

@@ -1,8 +1,8 @@
-import type { RouterOutput } from "@/server/trpc/routers";
+import type { RouterOutput } from '@/server/trpc/routers';
 
-export const useUserStore = defineStore("user", {
+export const useUserStore = defineStore('user', {
   state: () => ({
-    user: null as RouterOutput["user"]["get"] | null,
+    user: null as RouterOutput['user']['get'] | null,
   }),
 
   actions: {

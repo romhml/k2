@@ -1,8 +1,8 @@
-import { z } from "zod";
-import { db } from "@k2/db";
-import { posts } from "@k2/db/schema";
-import { createPostSchema } from "@/server/schemas/posts";
-import { protectedProcedure, router } from "../trpc";
+import { z } from 'zod';
+import { db } from '@k2/db';
+import { posts } from '@k2/db/schema';
+import { createPostSchema } from '@/server/schemas/posts';
+import { protectedProcedure, router } from '../trpc';
 
 export const postsRouter = router({
   list: protectedProcedure
@@ -11,7 +11,7 @@ export const postsRouter = router({
         offset: z.number().default(0).nullish(),
         limit: z.number().default(10),
         authorId: z.string().optional().nullish(),
-      }),
+      })
     )
     .query(async ({ input }) => {
       return await db.query.posts.findMany({

@@ -1,7 +1,7 @@
-import type { Adapter, AdapterAccount } from "@auth/core/adapters";
-import { eq, and } from "drizzle-orm";
-import type { db } from "@k2/db";
-import { users, sessions, accounts, verificationTokens } from "@k2/db/schema";
+import type { Adapter, AdapterAccount } from '@auth/core/adapters';
+import { eq, and } from 'drizzle-orm';
+import type { db } from '@k2/db';
+import { users, sessions, accounts, verificationTokens } from '@k2/db/schema';
 
 // This adapter is based on nuxt-auth's Drizzle adapter implementation
 // and implements better naming conventions.
@@ -47,7 +47,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
 
     async updateUser(data) {
       if (!data.id) {
-        throw new Error("No user id.");
+        throw new Error('No user id.');
       }
 
       return await client
@@ -97,8 +97,8 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .where(
           and(
             eq(accounts.provider, account.provider),
-            eq(accounts.providerAccountId, account.providerAccountId),
-          ),
+            eq(accounts.providerAccountId, account.providerAccountId)
+          )
         )
         .get();
 
@@ -131,14 +131,14 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
             .where(
               and(
                 eq(verificationTokens.identifier, token.identifier),
-                eq(verificationTokens.token, token.token),
-              ),
+                eq(verificationTokens.token, token.token)
+              )
             )
             .returning()
             .get()) ?? null
         );
       } catch (err) {
-        throw new Error("No verification token found.");
+        throw new Error('No verification token found.');
       }
     },
 
@@ -156,8 +156,8 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .where(
           and(
             eq(accounts.providerAccountId, account.providerAccountId),
-            eq(accounts.provider, account.provider),
-          ),
+            eq(accounts.provider, account.provider)
+          )
         )
         .run();
 

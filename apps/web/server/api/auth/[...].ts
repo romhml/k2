@@ -1,7 +1,7 @@
-import GithubProvider from "next-auth/providers/github";
-import { NuxtAuthHandler } from "#auth";
-import { db } from "@k2/db";
-import { SQLiteDrizzleAdapter } from "@/server/utils/auth/drizzleAdapter";
+import GithubProvider from 'next-auth/providers/github';
+import { NuxtAuthHandler } from '#auth';
+import { db } from '@k2/db';
+import { SQLiteDrizzleAdapter } from '@/server/utils/auth/drizzleAdapter';
 
 const runtimeConfig = useRuntimeConfig();
 
@@ -10,7 +10,7 @@ export default NuxtAuthHandler({
   adapter: SQLiteDrizzleAdapter(db),
 
   pages: {
-    signIn: "/signin",
+    signIn: '/signin',
   },
 
   providers: [

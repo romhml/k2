@@ -3,49 +3,49 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    "@nuxt/ui",
-    "@pinia/nuxt",
-    "@vueuse/nuxt",
-    "@sidebase/nuxt-auth",
-    "@nuxt/image",
+    '@nuxt/ui',
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+    '@sidebase/nuxt-auth',
+    '@nuxt/image',
   ],
 
-  css: ["@/assets/css/main.css"],
+  css: ['@/assets/css/main.css'],
   build: {
-    transpile: ["trpc-nuxt", "@nuxt/ui-edge", "valibot"],
+    transpile: ['trpc-nuxt', '@nuxt/ui-edge', 'valibot'],
   },
 
   auth: {
     globalAppMiddleware: true,
 
     provider: {
-      type: "authjs",
+      type: 'authjs',
       addDefaultCallbackUrl: true,
     },
   },
 
   pinia: {
-    autoImports: ["defineStore", "storeToRefs"],
+    autoImports: ['defineStore', 'storeToRefs'],
   },
 
   ui: {
-    icons: ["heroicons", "ri"],
+    icons: ['heroicons', 'ri'],
   },
 
   imports: {
-    dirs: ["stores/**", "composables/**"],
+    dirs: ['stores/**', 'composables/**'],
   },
 
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      link: [{ rel: "icon", type: "image/png", href: "/icon.png" }],
+      link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
     },
   },
 
   typescript: {
     tsConfig: {
-      extends: "@k2/tsconfig/base.json",
+      extends: '@k2/tsconfig/base.json',
     },
   },
 
