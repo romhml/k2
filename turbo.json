@@ -8,8 +8,6 @@
     "GITHUB_CLIENT_ID",
     "GITHUB_CLIENT_SECRET",
     "AUTH_*",
-    "VERCEL_*",
-    "CLERK_*",
     "DATABASE_URL",
     "DATABASE_AUTH_TOKEN"
   ],

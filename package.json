@@ -11,6 +11,7 @@
     "prepare": "husky install && bun run --cwd node_modules/better-sqlite3 build-debug",
     "format": "prettier --write \"**/*.{ts,vue,js,md,yaml,html}\"",
     "lint": "eslint --fix .",
+    "typecheck": "turbo run typecheck --log-prefix none",
     "check": "turbo run check",
     "dev": "turbo run dev",
     "web:dev": "turbo run dev --filter @k2/web --log-prefix none",
