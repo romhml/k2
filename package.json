@@ -2,12 +2,13 @@
   "name": "k2",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "bun@1.0.1",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install && bun run --cwd node_modules/better-sqlite3 build-debug",
     "format": "prettier --write \"**/*.{ts,vue,js,md,yaml,html}\"",
     "lint": "eslint --fix .",
     "check": "turbo run check",
@@ -19,9 +20,11 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@k2/eslint-config": "workspace:*",
+    "better-sqlite3": "^8.6.0",
     "drizzle-kit": "^0.19.13",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "node-gyp": "^9.4.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "turbo": "^1.10.14-canary.2"
@@ -32,6 +35,5 @@
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "dotenv-cli": "^7.3.0"
-  },
-  "packageManager": "bun@1.0.1"
+  }
 }

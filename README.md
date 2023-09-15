@@ -10,6 +10,10 @@ A <a href="https://nuxt.com">Nuxt</a> starter kit powered by <a href="https://bu
 
 <h2>Getting Started</h2>
 
+Create a `.env` file from `env.example`, update configuration values and run:
+
 ```bash
-$ bun -b dev
+bun install
+bun drizzle push:sqlite
+bun -b dev
 ```
