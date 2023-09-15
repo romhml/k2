@@ -10,10 +10,13 @@ A <a href="https://nuxt.com">Nuxt</a> starter kit powered by <a href="https://bu
 
 <h2>Getting Started</h2>
 
-Create a `.env` file from `env.example`, update configuration values and run:
-
 ```bash
-bun install
+bunx nuxi init -t gh:romhml/k2 my-app
+```
+
+To start the development server, create a `.env` file from `env.example`, update configuration values and run:
+
+```
 bun drizzle push:sqlite
 bun -b dev
 ```
