@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+const baseURL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.NUXT_APP_BASE_URL;
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -17,7 +19,7 @@ export default defineNuxtConfig({
 
   auth: {
     globalAppMiddleware: true,
-
+    baseURL,
     provider: {
       type: 'authjs',
       addDefaultCallbackUrl: true,
