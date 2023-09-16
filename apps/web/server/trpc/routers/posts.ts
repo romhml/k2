@@ -28,15 +28,14 @@ export const postsRouter = router({
   create: protectedProcedure
     .input(createPostSchema)
     .mutation(async ({ ctx, input }) => {
-      const post = (
-        await db
-          .insert(posts)
-          .values({
-            ...input,
-            authorId: ctx.user.id,
-          })
-          .returning()
-      )[0];
+      const post = await db
+        .insert(posts)
+        .values({
+          ...input,
+          authorId: ctx.user.id,
+        })
+        .returning()
+        .get();
 
       return {
         id: post.id,
