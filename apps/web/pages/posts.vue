@@ -2,7 +2,6 @@
 import { Form } from '@nuxt/ui/dist/runtime/types/form';
 import { CreatePost, createPostSchema } from '@/server/schemas/posts';
 
-useFormGroup();
 const { user } = useUserStore();
 const postStore = usePostStore();
 
@@ -28,7 +27,7 @@ await useAsyncData('posts', () => postStore.list());
         class="p-4"
         :schema="createPostSchema"
         :state="state"
-        @submit.prevent="onSubmit()"
+        @submit="onSubmit()"
       >
         <div class="space-x-2 flex">
           <div class="flex-none">

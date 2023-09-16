@@ -5,7 +5,7 @@ export const usePostStore = defineStore('post', {
     posts: [] as RouterOutput['posts']['list'],
     offset: 0,
     limit: 10,
-    hasMore: false,
+    hasMore: true,
   }),
 
   actions: {

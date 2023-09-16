@@ -8,7 +8,7 @@ export const postsRouter = router({
   list: protectedProcedure
     .input(
       z.object({
-        offset: z.number().default(0).nullish(),
+        offset: z.number().default(0),
         limit: z.number().default(10),
         authorId: z.string().optional().nullish(),
       })
@@ -20,6 +20,8 @@ export const postsRouter = router({
         where: (posts, { eq }) =>
           input?.authorId ? eq(posts.authorId, input?.authorId) : undefined,
         orderBy: (posts, { desc }) => [desc(posts.createdAt)],
+        limit: input.limit,
+        offset: input.offset,
       });
     }),
 
