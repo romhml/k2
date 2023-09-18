@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useServerSeoMeta({
-  title: 'Nuxt starter',
+  title: 'k2',
 });
 
 const { status } = useAuth();
