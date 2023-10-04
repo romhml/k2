@@ -1,7 +1,7 @@
-import { protectedProcedure, router } from '../trpc';
+import { protectedProcedure, router } from '../trpc'
 
 export const userRouter = router({
   get: protectedProcedure.query(async ({ ctx }) => {
-    return ctx.user;
+    return ctx.user
   }),
-});
+})

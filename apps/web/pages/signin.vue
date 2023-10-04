@@ -5,8 +5,8 @@ definePageMeta({
     unauthenticatedOnly: true,
     navigateAuthenticatedTo: '/',
   },
-});
-const { signIn } = useAuth();
+})
+const { signIn } = useAuth()
 </script>
 
 <template>

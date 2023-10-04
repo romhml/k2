@@ -3,7 +3,7 @@
 const authURL =
   process.env.AUTH_URL ?? process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
-    : undefined;
+    : undefined
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -63,4 +63,4 @@ export default defineNuxtConfig({
       },
     },
   },
-});
+})

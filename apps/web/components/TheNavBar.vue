@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { signOut, status, signIn } = useAuth();
-const isSignedIn = computed(() => status.value === 'authenticated');
-const { user } = useUserStore();
+const { signOut, status, signIn } = useAuth()
+const isSignedIn = computed(() => status.value === 'authenticated')
+const { user } = useUserStore()
 
 const items = computed(() => [
   [
@@ -9,7 +9,7 @@ const items = computed(() => [
       label: 'Posts',
       icon: 'i-heroicons-envelope',
       async click() {
-        await navigateTo('/posts');
+        await navigateTo('/posts')
       },
     },
   ],
@@ -18,11 +18,11 @@ const items = computed(() => [
       label: 'Sign out',
       icon: 'i-heroicons-arrow-left-on-rectangle',
       async click() {
-        await signOut({ callbackUrl: '/' });
+        await signOut({ callbackUrl: '/' })
       },
     },
   ],
-]);
+])
 </script>
 
 <template>

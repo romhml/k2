@@ -1,4 +1,4 @@
-import type { RouterOutput } from '@/server/trpc/routers';
+import type { RouterOutput } from '@/server/trpc/routers'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -7,8 +7,8 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     async get() {
-      const { $trpc } = useNuxtApp();
-      this.user = await $trpc.user.get.query();
+      const { $trpc } = useNuxtApp()
+      this.user = await $trpc.user.get.query()
     },
   },
-});
+})

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  content: string;
-  createdAt: Date;
-  author: { image: string | null; name: string | null };
-}>();
+  content: string
+  createdAt: Date
+  author: { image: string | null; name: string | null }
+}>()
 </script>
 
 <template>

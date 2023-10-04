@@ -1,9 +1,9 @@
-import GithubProvider from 'next-auth/providers/github';
-import { NuxtAuthHandler } from '#auth';
-import { db } from '@k2/db';
-import { SQLiteDrizzleAdapter } from '@/server/utils/auth/drizzleAdapter';
+import GithubProvider from 'next-auth/providers/github'
+import { NuxtAuthHandler } from '#auth'
+import { db } from '@k2/db'
+import { SQLiteDrizzleAdapter } from '@/server/utils/auth/drizzleAdapter'
 
-const runtimeConfig = useRuntimeConfig();
+const runtimeConfig = useRuntimeConfig()
 
 export default NuxtAuthHandler({
   secret: runtimeConfig.auth.secret,
@@ -23,7 +23,7 @@ export default NuxtAuthHandler({
 
   callbacks: {
     async redirect({ baseUrl }) {
-      return baseUrl;
+      return baseUrl
     },
   },
-});
+})

@@ -1,21 +1,21 @@
 <script setup lang="ts">
 useServerSeoMeta({
   title: 'k2',
-});
+})
 
-const { status } = useAuth();
-const userStore = useUserStore();
+const { status } = useAuth()
+const userStore = useUserStore()
 
 if (process.client) {
   watch(
     () => status.value,
     async (value) => {
       if (value === 'authenticated' && process.client) {
-        await userStore.get();
+        await userStore.get()
       }
     },
     { immediate: true }
-  );
+  )
 }
 </script>
 

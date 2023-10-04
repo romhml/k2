@@ -12,8 +12,8 @@ module.exports = {
     '^[./]',
   ],
   tabWidth: 2,
-  semi: true,
+  semi: false,
   singleQuote: true,
   singleAttributePerLine: true,
   trailingComma: 'es5',
-};
+}

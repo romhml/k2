@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { Form } from '@nuxt/ui/dist/runtime/types/form';
-import { CreatePost, createPostSchema } from '@/server/schemas/posts';
+import { Form } from '@nuxt/ui/dist/runtime/types/form'
+import { CreatePost, createPostSchema } from '@/server/schemas/posts'
 
-const { user } = useUserStore();
-const postStore = usePostStore();
+const { user } = useUserStore()
+const postStore = usePostStore()
 
-const form = ref<Form<CreatePost>>();
+const form = ref<Form<CreatePost>>()
 const state = ref({
   content: '',
-});
+})
 
 const onSubmit = async () => {
-  await postStore.create(state.value);
-  state.value.content = '';
-};
+  await postStore.create(state.value)
+  state.value.content = ''
+}
 
-await useAsyncData('posts', () => postStore.list());
+await useAsyncData('posts', () => postStore.list())
 </script>
 <template>
   <div ref="container">

@@ -1,12 +1,7 @@
-import type { AdapterAccount } from '@auth/core/adapters';
-import { createId } from '@paralleldrive/cuid2';
-import { relations } from 'drizzle-orm';
-import {
-  integer,
-  sqliteTable,
-  text,
-  primaryKey,
-} from 'drizzle-orm/sqlite-core';
+import type { AdapterAccount } from '@auth/core/adapters'
+import { createId } from '@paralleldrive/cuid2'
+import { relations } from 'drizzle-orm'
+import { integer, sqliteTable, text, primaryKey } from 'drizzle-orm/sqlite-core'
 
 export const users = sqliteTable('user', {
   id: text('id').notNull().primaryKey().$defaultFn(createId),
@@ -14,7 +9,7 @@ export const users = sqliteTable('user', {
   email: text('email').notNull(),
   emailVerified: integer('emailVerified', { mode: 'timestamp_ms' }),
   image: text('image'),
-});
+})
 
 export const accounts = sqliteTable(
   'account',
@@ -37,7 +32,7 @@ export const accounts = sqliteTable(
   (account) => ({
     compoundKey: primaryKey(account.provider, account.providerAccountId),
   })
-);
+)
 
 export const sessions = sqliteTable('session', {
   sessionToken: text('sessionToken').notNull().primaryKey(),
@@ -45,7 +40,7 @@ export const sessions = sqliteTable('session', {
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
   expires: integer('expires', { mode: 'timestamp_ms' }).notNull(),
-});
+})
 
 export const verificationTokens = sqliteTable(
   'verification_token',
@@ -57,7 +52,7 @@ export const verificationTokens = sqliteTable(
   (vt) => ({
     compoundKey: primaryKey(vt.identifier, vt.token),
   })
-);
+)
 
 export const posts = sqliteTable('post', {
   id: text('id').primaryKey().notNull().$defaultFn(createId),
@@ -71,11 +66,11 @@ export const posts = sqliteTable('post', {
   updatedAt: integer('updatedAt', { mode: 'timestamp_ms' })
     .notNull()
     .defaultNow(),
-});
+})
 
 export const postsRelations = relations(posts, ({ one }) => ({
   author: one(users, {
     fields: [posts.authorId],
     references: [users.id],
   }),
-}));
+}))

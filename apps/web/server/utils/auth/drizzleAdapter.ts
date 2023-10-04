@@ -1,34 +1,32 @@
-import type { Adapter, AdapterAccount } from '@auth/core/adapters';
-import { eq, and } from 'drizzle-orm';
-import type { db } from '@k2/db';
-import { users, sessions, accounts, verificationTokens } from '@k2/db/schema';
+import type { Adapter, AdapterAccount } from '@auth/core/adapters'
+import { eq, and } from 'drizzle-orm'
+import type { db } from '@k2/db'
+import { users, sessions, accounts, verificationTokens } from '@k2/db/schema'
 
 // This adapter is based on nuxt-auth's Drizzle adapter implementation
 // and implements better naming conventions.
 export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
   return {
     async createUser(data) {
-      return (
-        (await client.insert(users).values(data).returning().get()) ?? null
-      );
+      return (await client.insert(users).values(data).returning().get()) ?? null
     },
 
     async getUser(id) {
       return (
         (await client.select().from(users).where(eq(users.id, id)).get()) ??
         null
-      );
+      )
     },
 
     async getUserByEmail(email) {
       return (
         (await client.select().from(users).where(eq(users.id, email)).get()) ??
         null
-      );
+      )
     },
 
     async createSession(data) {
-      return await client.insert(sessions).values(data).returning().get();
+      return await client.insert(sessions).values(data).returning().get()
     },
 
     async getSessionAndUser(data) {
@@ -42,12 +40,12 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
           .where(eq(sessions.sessionToken, data))
           .innerJoin(users, eq(users.id, sessions.userId))
           .get()) ?? null
-      );
+      )
     },
 
     async updateUser(data) {
       if (!data.id) {
-        throw new Error('No user id.');
+        throw new Error('No user id.')
       }
 
       return await client
@@ -55,7 +53,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .set(data)
         .where(eq(users.id, data.id))
         .returning()
-        .get();
+        .get()
     },
 
     async updateSession(data) {
@@ -64,7 +62,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .set(data)
         .where(eq(sessions.sessionToken, data.sessionToken))
         .returning()
-        .get();
+        .get()
     },
 
     async linkAccount(rawAccount) {
@@ -72,7 +70,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .insert(accounts)
         .values(rawAccount)
         .returning()
-        .get();
+        .get()
 
       const account: AdapterAccount = {
         ...updatedAccount,
@@ -84,9 +82,9 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         scope: updatedAccount.scope ?? undefined,
         expiresAt: updatedAccount.expiresAt ?? undefined,
         sessionState: updatedAccount.sessionState ?? undefined,
-      };
+      }
 
-      return account;
+      return account
     },
 
     async getUserByAccount(account) {
@@ -100,9 +98,9 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
             eq(accounts.providerAccountId, account.providerAccountId)
           )
         )
-        .get();
+        .get()
 
-      return results?.user ?? null;
+      return results?.user ?? null
     },
 
     async deleteSession(sessionToken) {
@@ -112,7 +110,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
           .where(eq(sessions.sessionToken, sessionToken))
           .returning()
           .get()) ?? null
-      );
+      )
     },
 
     async createVerificationToken(token) {
@@ -120,7 +118,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .insert(verificationTokens)
         .values(token)
         .returning()
-        .get();
+        .get()
     },
 
     async useVerificationToken(token) {
@@ -136,9 +134,9 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
             )
             .returning()
             .get()) ?? null
-        );
+        )
       } catch (err) {
-        throw new Error('No verification token found.');
+        throw new Error('No verification token found.')
       }
     },
 
@@ -147,7 +145,7 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .delete(users)
         .where(eq(users.id, id))
         .returning()
-        .get();
+        .get()
     },
 
     async unlinkAccount(account) {
@@ -159,9 +157,9 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
             eq(accounts.provider, account.provider)
           )
         )
-        .run();
+        .run()
 
-      return undefined;
+      return undefined
     },
-  };
+  }
 }

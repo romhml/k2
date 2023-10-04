@@ -1,4 +1,4 @@
-import type { RouterInput, RouterOutput } from '@/server/trpc/routers';
+import type { RouterInput, RouterOutput } from '@/server/trpc/routers'
 
 export const usePostStore = defineStore('post', {
   state: () => ({
@@ -10,25 +10,25 @@ export const usePostStore = defineStore('post', {
 
   actions: {
     async list() {
-      const { $trpc } = useNuxtApp();
+      const { $trpc } = useNuxtApp()
       const posts = await $trpc.posts.list.query({
         offset: this.offset,
         limit: this.limit,
-      });
+      })
 
       if (posts.length < this.limit) {
-        this.hasMore = false;
+        this.hasMore = false
       }
 
-      this.offset += posts.length;
-      this.posts.push(...posts);
-      return posts;
+      this.offset += posts.length
+      this.posts.push(...posts)
+      return posts
     },
 
     async create(input: RouterInput['posts']['create']) {
-      const { $trpc } = useNuxtApp();
-      const post = await $trpc.posts.create.mutate(input);
-      this.posts.unshift(post);
+      const { $trpc } = useNuxtApp()
+      const post = await $trpc.posts.create.mutate(input)
+      this.posts.unshift(post)
     },
   },
-});
+})

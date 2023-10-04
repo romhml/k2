@@ -1,8 +1,8 @@
-import { z } from 'zod';
-import { db } from '@k2/db';
-import { posts } from '@k2/db/schema';
-import { createPostSchema } from '@/server/schemas/posts';
-import { protectedProcedure, router } from '../trpc';
+import { z } from 'zod'
+import { db } from '@k2/db'
+import { posts } from '@k2/db/schema'
+import { createPostSchema } from '@/server/schemas/posts'
+import { protectedProcedure, router } from '../trpc'
 
 export const postsRouter = router({
   list: protectedProcedure
@@ -22,7 +22,7 @@ export const postsRouter = router({
         orderBy: (posts, { desc }) => [desc(posts.createdAt)],
         limit: input.limit,
         offset: input.offset,
-      });
+      })
     }),
 
   create: protectedProcedure
@@ -35,13 +35,13 @@ export const postsRouter = router({
           authorId: ctx.user.id,
         })
         .returning()
-        .get();
+        .get()
 
       return {
         id: post.id,
         content: post.content,
         createdAt: post.createdAt,
         author: { id: ctx.user.id, image: ctx.user.image, name: ctx.user.name },
-      };
+      }
     }),
-});
+})
