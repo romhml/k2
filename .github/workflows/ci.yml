@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install
+      run: bun install
+
+    - name: Format
+      run: bun run prettier -c .
+
+    - name: Lint
+      run: bun lint
+
+    - name: Typecheck
+      run: bun typecheck
