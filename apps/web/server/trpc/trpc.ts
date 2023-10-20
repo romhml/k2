@@ -1,6 +1,6 @@
 import { TRPCError, initTRPC } from '@trpc/server'
 import superjson from 'superjson'
-import { Context } from '@/server/trpc/context'
+import type { Context } from '@/server/trpc/context'
 
 const t = initTRPC.context<Context>().create({ transformer: superjson })
 
@@ -14,7 +14,7 @@ export const isAuthenticated = middleware(async ({ next, ctx }) => {
   }
 
   return next({
-    ctx,
+    ctx: { ...ctx, user: ctx.user },
   })
 })
 

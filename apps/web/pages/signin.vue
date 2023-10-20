@@ -1,10 +1,8 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'none',
-  auth: {
-    unauthenticatedOnly: true,
-    navigateAuthenticatedTo: '/',
-  },
+  middleware: 'guest-only',
+  auth: { authenticatedRedirectTo: '/' },
 })
 const { signIn } = useAuth()
 </script>

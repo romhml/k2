@@ -11,7 +11,7 @@ export const postsRouter = router({
         offset: z.number().default(0),
         limit: z.number().default(10),
         authorId: z.string().optional().nullish(),
-      })
+      }),
     )
     .query(async ({ input }) => {
       return await db.query.posts.findMany({

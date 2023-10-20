@@ -1,12 +1,17 @@
-import GithubProvider from 'next-auth/providers/github'
+import GithubProvider from '@auth/core/providers/github'
+import type { AuthConfig } from '@auth/core/types'
 import { NuxtAuthHandler } from '#auth'
 import { db } from '@k2/db'
 import { SQLiteDrizzleAdapter } from '@/server/utils/auth/drizzleAdapter'
 
+// The #auth virtual import comes from this module. You can use it on the client
+// and server side, however not every export is universal. For example do not
+// use sign-in and sign-out on the server side.
+
 const runtimeConfig = useRuntimeConfig()
 
-export default NuxtAuthHandler({
-  secret: runtimeConfig.auth.secret,
+export const authOptions: AuthConfig = {
+  secret: runtimeConfig.authJs.secret,
   adapter: SQLiteDrizzleAdapter(db),
 
   pages: {
@@ -14,10 +19,9 @@ export default NuxtAuthHandler({
   },
 
   providers: [
-    // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
-    GithubProvider.default({
-      clientId: runtimeConfig.auth.github.clientId,
-      clientSecret: runtimeConfig.auth.github.clientSecret,
+    GithubProvider({
+      clientId: runtimeConfig.github.clientId,
+      clientSecret: runtimeConfig.github.clientSecret,
     }),
   ],
 
@@ -26,4 +30,6 @@ export default NuxtAuthHandler({
       return baseUrl
     },
   },
-})
+}
+
+export default NuxtAuthHandler(authOptions, runtimeConfig)

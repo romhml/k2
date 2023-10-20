@@ -95,8 +95,8 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .where(
           and(
             eq(accounts.provider, account.provider),
-            eq(accounts.providerAccountId, account.providerAccountId)
-          )
+            eq(accounts.providerAccountId, account.providerAccountId),
+          ),
         )
         .get()
 
@@ -129,8 +129,8 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
             .where(
               and(
                 eq(verificationTokens.identifier, token.identifier),
-                eq(verificationTokens.token, token.token)
-              )
+                eq(verificationTokens.token, token.token),
+              ),
             )
             .returning()
             .get()) ?? null
@@ -154,8 +154,8 @@ export function SQLiteDrizzleAdapter(client: typeof db): Adapter {
         .where(
           and(
             eq(accounts.providerAccountId, account.providerAccountId),
-            eq(accounts.provider, account.provider)
-          )
+            eq(accounts.provider, account.provider),
+          ),
         )
         .run()
 

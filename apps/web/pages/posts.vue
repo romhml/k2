@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Form } from '@nuxt/ui/dist/runtime/types/form'
-import { CreatePost, createPostSchema } from '@/server/schemas/posts'
+import type { Form } from '#ui/types'
+import { type CreatePost, createPostSchema } from '@/server/schemas/posts'
 
 const { user } = useUserStore()
 const postStore = usePostStore()

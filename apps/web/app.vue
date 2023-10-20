@@ -14,7 +14,7 @@ if (process.client) {
         await userStore.get()
       }
     },
-    { immediate: true }
+    { immediate: true },
   )
 }
 </script>
