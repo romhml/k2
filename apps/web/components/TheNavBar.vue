@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+
 const { signOut, status, signIn } = useAuth()
 const isSignedIn = computed(() => status.value === 'authenticated')
-const { user } = useUserStore()
+const { user } = storeToRefs(useUserStore())
 
 const items = computed(() => [
   [
