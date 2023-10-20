@@ -10,6 +10,10 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
+    - id: checkout
+      name: Checkout
+      uses: actions/checkout@v3
+
     - uses: oven-sh/setup-bun@v1
       with:
         bun-version: latest
