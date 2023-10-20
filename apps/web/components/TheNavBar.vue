@@ -48,7 +48,7 @@ const items = computed(() => [
           variant="link"
           size="sm"
           color="black"
-          @click="signIn('github')"
+          @click="signIn()"
         >
           Sign In
         </UButton>
