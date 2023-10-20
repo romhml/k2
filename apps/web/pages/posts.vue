@@ -2,7 +2,7 @@
 import type { Form } from '#ui/types'
 import { type CreatePost, createPostSchema } from '@/server/schemas/posts'
 
-const { user } = useUserStore()
+const { user } = useAuth()
 const postStore = usePostStore()
 
 const form = ref<Form<CreatePost>>()

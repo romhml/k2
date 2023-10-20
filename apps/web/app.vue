@@ -2,21 +2,6 @@
 useServerSeoMeta({
   title: 'k2',
 })
-
-const { status } = useAuth()
-const userStore = useUserStore()
-
-if (process.client) {
-  watch(
-    () => status.value,
-    async (value) => {
-      if (value === 'authenticated' && process.client) {
-        await userStore.get()
-      }
-    },
-    { immediate: true },
-  )
-}
 </script>
 
 <template>

@@ -26,8 +26,10 @@ export const authOptions: AuthConfig = {
   ],
 
   callbacks: {
-    async redirect({ baseUrl }) {
-      return baseUrl
+    // Add additional user properties in the session
+    async session({ session, user }) {
+      session.user = user
+      return session
     },
   },
 }
