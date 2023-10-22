@@ -25,4 +25,8 @@ useServerSeoMeta({
 .page-leave-to {
   opacity: 0;
 }
+
+:root.dark {
+  @apply bg-slate-900;
+}
 </style>

@@ -18,9 +18,9 @@ const onSubmit = async () => {
 await useAsyncData('posts', () => postStore.list())
 </script>
 <template>
-  <div ref="container">
+  <div>
     <div
-      class="mx-auto max-w-xl rounded-b-lg border-b border-l border-r border-slate-100"
+      class="mx-auto max-w-xl rounded-b-lg border-b border-l border-r border-slate-100 dark:border-slate-800"
     >
       <UForm
         ref="form"
@@ -70,7 +70,7 @@ await useAsyncData('posts', () => postStore.list())
         v-for="post in postStore.posts"
         :key="post.id"
       >
-        <hr class="border-slate-100" />
+        <hr class="border-slate-100 dark:border-slate-800" />
         <PostCard
           :created-at="post.createdAt"
           :content="post.content"

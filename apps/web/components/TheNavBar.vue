@@ -26,14 +26,16 @@ const items = computed(() => [
 
 <template>
   <header
-    class="h-16 border-b border-slate-100 bg-transparent backdrop-blur-3xl"
+    class="h-16 border-b border-slate-100 bg-white dark:bg-slate-900 dark:border-slate-800"
   >
     <div
       class="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-8 py-2"
     >
-      <BaseLogo />
+      <BaseLogo class="h-8 w-8" />
 
-      <div>
+      <div class="flex items-center space-x-2">
+        <TheDarkModeButton />
+
         <UDropdown
           v-if="isSignedIn"
           :items="items"

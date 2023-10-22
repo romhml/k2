@@ -15,7 +15,6 @@ export default defineNuxtConfig({
     cookie: resolve(__dirname, '../../node_modules/cookie'),
   },
 
-  css: ['@/assets/css/main.css'],
   build: {
     transpile: ['trpc-nuxt', '@nuxt/ui-edge', 'valibot'],
   },
@@ -35,7 +34,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      link: [{ rel: 'icon', type: 'image/png', href: '/icon.png' }],
+      link: [{ rel: 'icon', type: 'image/jpeg', href: '/icon.jpg' }],
     },
   },
 

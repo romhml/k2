@@ -18,7 +18,7 @@ defineProps<{
         <p class="text-sm font-semibold truncate">
           {{ author?.name ?? 'Anon' }}
         </p>
-        <p class="text-xs text-neutral-400">
+        <p class="text-xs text-slate-400">
           {{ $moment(createdAt).fromNow() }}
         </p>
       </div>
