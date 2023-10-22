@@ -5,7 +5,7 @@
     <div
       class="mx-auto max-w-xl space-y-4 px-4 pb-32 pt-20 text-center sm:px-6 lg:px-8 lg:pb-40 lg:pt-28"
     >
-      <BaseLogo class="mx-auto w-32 rounded-full" />
+      <BaseLogo class="mx-auto w-40 rounded-full" />
       <p class="text-2xl font-bold">K2</p>
 
       <p align="center">

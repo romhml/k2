@@ -4,7 +4,7 @@
     to="/"
   >
     <img
-      src="/icon.jpg"
+      src="/icon.png"
       class="mx-auto"
     />
   </NuxtLink>
