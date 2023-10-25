@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/apps/web/public/icon.png" height="128">
+    <img src="/apps/web/public/icon.png" height="300" style="border-radius: 50%">
 </p>
 
 <p align="center">
