@@ -9,7 +9,7 @@
       <p class="text-2xl font-bold">K2</p>
 
       <p align="center">
-        A <a href="https://nuxt.com">Nuxt</a> powered by
+        A <a href="https://nuxt.com">Nuxt</a> starter kit powered by
         <a href="https://bun.sh">Bun</a>,
         <a href="https://turbo.build">Turborepo</a>,
         <a href="https://trpc.io">TRPC</a> and
