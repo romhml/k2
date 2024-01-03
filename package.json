@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install && bun run --cwd node_modules/better-sqlite3 build-debug",
+    "prepare": "husky install",
     "format": "prettier --write .",
     "lint": "eslint --fix .",
     "typecheck": "turbo run typecheck --log-prefix none",
