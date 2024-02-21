@@ -2,8 +2,11 @@
     <img src="/apps/web/public/icon.png" height="300" style="border-radius: 50%">
 </p>
 
+<h3 align="center"> K2 </h3>
+
 <p align="center">
-A <a href="https://nuxt.com">Nuxt</a> starter kit powered by <a href="https://bun.sh">Bun</a>, <a href="https://turbo.build">Turborepo</a>, <a href="https://trpc.io">TRPC</a> and <a href="https://orm.drizzle.team">Drizzle</a>.
+    A <a href="https://nuxt.com">Nuxt</a> starter kit powered by <a href="https://bun.sh">Bun</a>, <a href="https://turbo.build">Turborepo</a>, <a href="https://trpc.io">TRPC</a> and <a href="https://orm.drizzle.team">Drizzle</a>.
+</p>
 
 <br/>
 <br/>
