@@ -33,7 +33,7 @@ const items = computed(() => [
     >
       <BaseLogo class="h-8 w-8" />
 
-      <div class="flex items-center space-x-2">
+      <div class="flex items-center space-x-4">
         <TheDarkModeButton />
 
         <UDropdown

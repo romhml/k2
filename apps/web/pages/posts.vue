@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import type { Form } from '#ui/types'
-import { type CreatePost, createPostSchema } from '@/server/schemas/posts'
+import { createPostSchema } from '@/server/schemas/posts'
 
 const { user } = useAuth()
 const postStore = usePostStore()
 
-const form = ref<Form<CreatePost>>()
-const state = ref({
+const state = reactive({
   content: '',
 })
 
 const onSubmit = async () => {
-  await postStore.create(state.value)
-  state.value.content = ''
+  await postStore.create(state)
+  state.content = ''
 }
 
 await useAsyncData('posts', () => postStore.list())
@@ -23,7 +21,6 @@ await useAsyncData('posts', () => postStore.list())
       class="mx-auto max-w-xl rounded-b-lg border-b border-l border-r border-slate-100 dark:border-slate-800"
     >
       <UForm
-        ref="form"
         class="p-4"
         :schema="createPostSchema"
         :state="state"

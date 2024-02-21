@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="flex items-center space-x-2 rounded-full overflow-hidden border border-slate-800 dark:border-slate-100"
+    class="flex items-center space-x-2 rounded-full overflow-hidden border-slate-800 dark:border-slate-100"
     to="/"
   >
     <img
